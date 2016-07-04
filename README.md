@@ -1,1 +1,2 @@
 # LWVoters
+This repo contains a process for determining the sampling error for a League of Womens Voters voting issue. The LWV wanted to see how sending out a postcard or a flyer to voters with a low propensity to vote would affect their voting. They were particularly interested in young and Hispanic voters as they have a lower tendency to vote.

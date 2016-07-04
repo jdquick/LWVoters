@@ -1,0 +1,35 @@
+---
+title: "League Of Women Voters Voting Problem"
+author: "Johnny Quick"
+date: "July 4, 2016"
+output: 
+  html_document:
+    keep_md: true
+---
+
+## League of Women Voters Voting Problem
+
+```{r main}
+setwd("C:/Users/Johnny/OneDrive/LWVoters")
+LWVData <- read.csv("LWV_Data.csv")
+
+# pull out sample data into separate data frame
+LWVData.Sample <- LWVData[!is.na(LWVData$flyer), ]
+
+## Look at first 10 rows of data from sample
+head(LWVData.Sample, 10)
+```
+
+In looking at the first 10 rows, none of them are young voters, and most of them are non-Hispanic. The League of Womens Voters were particularly interested in the effect on voting behavior for young and Hispanic voters because this group tended to be less likely to vote in past elections. Therefore, we need to look further into whether or not our sample is representative of young and Hispanic voters.
+
+```{r descriptive}
+table(LWVData.Sample$Young.Voter)
+table(LWVData.Sample$Young.Hispanic.Status)
+```
+Looking at the table, we can see that less than 50 percent of the voters in the sample are young. Taking it a step further, we look at the young, Hispanic status variable, and we see that less than 25 percent of the voters in the sample are young and Hispanic.
+
+Now, let's plot the sample data and the entire data to see the young, Hispanic status variable visually. In the plots below, we see the vast majority in the entire data set are non-young and non-Hispanic voters. This is not representative of the test that the League of Womens Voters would like to perform.
+```{r plots}
+plot(LWVData.Sample$Young.Hispanic.Status)
+plot(LWVData$Young.Hispanic.Status)
+```
